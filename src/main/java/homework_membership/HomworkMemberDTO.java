@@ -10,7 +10,7 @@ public class HomworkMemberDTO {
 	private String zipCode;			// 우편번호
 	private String addr1;			// 주소
 	private String addr2;			// 상세주소
-	private String mobile;			// 휴대전화 앞부분
+	private String mobile;			// 휴대전화
 	private java.sql.Date regidate;	// 가입일
 	
 	
