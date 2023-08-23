@@ -15,9 +15,9 @@ public class HomeworkMemberDAO extends JDBConnect {
 		try {
 			// 쿼리문 생성
 			String query = "INSERT INTO homwork_member "
-						+ " (id, password, name) "
+						+ " (id, password, name, email, zipcode, addr1, addr2, mobile, regidate) "
 						+ " VALUES "
-						+ " (?, ?, ?)";
+						+ " (?, ?, ?, ?, ?, ?, ?, ?, sysdate)";
 			
 			psmt = con.prepareStatement(query);
 			psmt.setString(1, dto.getId());
