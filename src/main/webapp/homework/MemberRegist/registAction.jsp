@@ -39,7 +39,7 @@
 	
 	if ( iResult == 1 ){	// 회원가입에 성공한 경우 회원가입정보로 이동
 		out.println("성공");
-		JSFunction.alertLocation("회원가입성공", "registResult.jsp", out);
+		JSFunction.alertLocation("회원가입에 성공했습니다.", "registResult.jsp", out);
 	}
 	else {					// 회원가입에 실패한 경우 회원가입으로 다시 돌아감
 		out.println("실패");
