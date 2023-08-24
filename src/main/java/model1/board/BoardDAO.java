@@ -100,20 +100,26 @@ public class BoardDAO extends JDBConnect {
 		return bbs;
 	}
 	
+	// 게시물 입력을 위한 메서드. 폼값이 저장된 DTO객체를 인수로 받는다.
 	public int insertWrite(BoardDTO dto) {
 		int result = 0;
 		
 		try {
+			/*
+			인파라미터가 있는 동적쿼리문으로 insert문을 작성한다.
+			게시물의 일련번호는 시퀀스를 통해 자동부여하고, 조회수는 0으로 입력한다.
+			*/
 			String query = "INSERT INTO board ( "
 						+ " num,title,content,id,visitcount) "
 						+ " VALUES ( "
 						+ " seq_board_num.NEXTVAL, ?, ?, ?, 0)";
 			
 			psmt = con.prepareStatement(query);
+			// 인파라미터는 DTO에 저장된 내용으로 채워준다.
 			psmt.setString(1, dto.getTitle());
 			psmt.setString(2, dto.getContent());
 			psmt.setString(3, dto.getId());
-			
+			// insert쿼리문을 실행한 후 결과값(int)을 반환받는다.
 			result = psmt.executeUpdate();
 		}
 		catch (Exception e) {
