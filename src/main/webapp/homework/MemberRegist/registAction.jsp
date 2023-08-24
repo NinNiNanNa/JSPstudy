@@ -1,5 +1,5 @@
-<%@page import="homework_membership.HomeworkMemberDAO"%>
 <%@page import="utils.JSFunction"%>
+<%@page import="homework_membership.HomeworkMemberDAO"%>
 <%@page import="homework_membership.HomworkMemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -8,14 +8,14 @@
 	String id = request.getParameter("id");
 	String pass = request.getParameter("pass1");
 	String name = request.getParameter("name");
-	String email = request.getParameter("email1")+"@"
-		  +request.getParameter("email2");
+	String email = request.getParameter("email1") +"@"
+		  		 + request.getParameter("email2");
 	String zipCode = request.getParameter("zipcode");
 	String addr1 = request.getParameter("addr1");
 	String addr2 = request.getParameter("addr2");
-	String mobile = request.getParameter("mobile1")+"-"
-		   +request.getParameter("mobile2")+"-"
-		   +request.getParameter("mobile3");
+	String mobile = request.getParameter("mobile1") +"-"
+		   		  + request.getParameter("mobile2") +"-"
+		   		  + request.getParameter("mobile3");
 	
 	// 받은 폼값을 DTO객체에 저장
 	HomworkMemberDTO dto = new HomworkMemberDTO();
@@ -38,11 +38,9 @@
 	dao.close();
 	
 	if ( iResult == 1 ){	// 회원가입에 성공한 경우 회원가입정보로 이동
-		out.println("성공");
 		JSFunction.alertLocation("회원가입에 성공했습니다.", "registResult.jsp", out);
 	}
 	else {					// 회원가입에 실패한 경우 회원가입으로 다시 돌아감
-		out.println("실패");
 		JSFunction.alertBack("회원가입에 실패했습니다.", out);
 	}
 %>
