@@ -1,19 +1,21 @@
-package homework_membership;
+package homework.regist;
 
-public class HomworkMemberDTO {
+public class RegistDTO {
 
 	// 멤버변수
 	private String id;				// 아이디
 	private String pass;			// 비밀번호
 	private String name;			// 이름
 	private String email;			// 이메일
+	private String mailing;			// 이메일 수신여부
 	private String zipCode;			// 우편번호
 	private String addr1;			// 주소
 	private String addr2;			// 상세주소
 	private String mobile;			// 휴대전화
+	private String sms;				// 문자 수신여부
 	private java.sql.Date regidate;	// 가입일
 	
-	
+
 	// getter, setter
 	public String getId() { return id; }
 	public void setId(String id) { this.id = id; }
@@ -27,6 +29,9 @@ public class HomworkMemberDTO {
 	public String getEmail() { return email; }
 	public void setEmail(String email) { this.email = email; }
 	
+	public String getMailing() { return mailing; }
+	public void setMailing(String mailing) { this.mailing = mailing; }
+	
 	public String getZipCode() { return zipCode; }
 	public void setZipCode(String zipCode) { this.zipCode = zipCode; }
 	
@@ -38,6 +43,9 @@ public class HomworkMemberDTO {
 	
 	public String getMobile() { return mobile; }
 	public void setMobile(String mobile) { this.mobile = mobile; }
+	
+	public String getSms() { return sms; }
+	public void setSms(String sms) { this.sms = sms; }
 	
 	public java.sql.Date getRegidate() { return regidate; }
 	public void setRegidate(java.sql.Date regidate) { this.regidate = regidate; }
