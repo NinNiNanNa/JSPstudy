@@ -45,22 +45,25 @@ public class RegistDAO extends JDBConnect {
 	
 	// 아이디 중복확인
 	public boolean selectMember(String id) {
+		boolean retValue = true;
 		try {
 			String query = "SELECT * FROM homwork_member WHERE id=?";
 			
 			psmt = con.prepareStatement(query);
 			psmt.setString(1, id);
 			rs = psmt.executeQuery();
+			rs.next();
+			int result = rs.getInt(1);
 			
-			if(rs.next()) {
-				return false;
+			if(result==1) {
+				retValue = false;
 			}
 		}
 		catch(Exception e) {
 			System.out.println("회원정보 확인 중 예외 발생");
 			e.printStackTrace();
 		}
-		return true;
+		return retValue;
 	}
 	
 }
