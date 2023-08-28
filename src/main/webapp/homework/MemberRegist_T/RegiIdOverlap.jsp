@@ -25,7 +25,9 @@ dao.close();
     //재입력한 아이디를 부모창으로 전송한다.
     function idUse(){
         //opener속성을 통해 부모창의 DOM을 선택할 수 있다. 
+        // 사용가능한 아이디를 부모창으로 전송한다.
         opener.document.myform.id.value = document.overlapFrm.retype_id.value;
+        // 팝업창을 닫는다.
         self.close();
     }
 </script>
@@ -40,10 +42,10 @@ if(isExist==true) {
         <p>
         	입력한 아이디는 사용할 수 있습니다. <br />
         	<input type="button" value="아이디 사용하기" onclick="idUse();" />
+        	<form name="overlapFrm">
+        		<input type="hid den" name="retype_id" value="<%=id %>" />
+        	</form>
         </p>
-        <form name="overlapFrm">
-            <input type="hidden" name="retype_id" value="<%=id %>" />
-        </form>
 <% 
 } else {
 %>

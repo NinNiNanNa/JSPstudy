@@ -21,7 +21,7 @@ application.setAttribute("scopeValue", "애플리케이션 영역");
 	모두 동일한 패턴으로 "영역명Scope"와 같은 형태로 되어있다.
 	EL의 내장객체에 .(닷)을 추가하여 속성명을 기술한다.
 	 -->
-	<h3>각 영역에 저장된 속성 읽기</h3>
+	<h3>각 영역에 저장된 속성 읽기(EL사용)</h3>
 	<ul>
 		<li>페이지 영역 : ${ pageScope.scopeValue }</li>
 		<li>리퀘스트 영역 : ${ requestScope.scopeValue }</li>
