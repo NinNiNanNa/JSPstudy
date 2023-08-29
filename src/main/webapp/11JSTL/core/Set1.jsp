@@ -69,5 +69,6 @@ set태그
 		<li>이름 : ${ personVar2.name }</li>
 		<li>나이 : ${ requestScope.personVar2.age }</li>
 	</ul>
+	<!-- 속성명이 중복되지 않는다면 영역을 지정하는 내장객체는 생략할 수 있다. -->
 </body>
 </html>

@@ -1,6 +1,7 @@
 <%@page import="java.util.StringTokenizer"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,12 +23,12 @@
 	 -->
 	<%
 	// 콤마로 구분된 문자열을 정의한다.
-	String rgba = "Red,Green,Bluem,Black";
+	String rgba = "Red,Green,Blue,Black";
 	%>
 	<h4>JSTL의 forTokens 태그 사용</h4>
-	<c:fortokens items="<%= rgba %>" delims="," var="color" >
-		<span style="color:${ color };">${ color }</span>
-	</c:fortokens>
+	<c:forTokens items="<%= rgba %>" delims="," var="color" >
+		<span style="color:${ color };">${ color }</span> <br />
+	</c:forTokens>
 	
 	<h4>StringTokenizer 클래스 사용</h4>
 	<%

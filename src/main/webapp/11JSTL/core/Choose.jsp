@@ -58,11 +58,11 @@ choose 태그
         <c:choose>  
             <c:when test="${ avg >= 90 }">A 학점</c:when>
             <c:when test="${ avg >= 80 }">B 학점</c:when>
-            <!-- ge(greater than equal) 이므로 >= 와 동일하다. -->
             <c:when test="${ avg ge 70 }">C 학점</c:when>
             <c:when test="${ avg ge 60 }">D 학점</c:when>
             <c:otherwise>F 학점</c:otherwise>
         </c:choose>
+            <!-- ge(greater than equal) 이므로 >= 와 동일하다. -->
         입니다.
     </c:if>
 </body>

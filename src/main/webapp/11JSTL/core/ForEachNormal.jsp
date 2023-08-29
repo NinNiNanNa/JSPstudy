@@ -55,15 +55,19 @@ forEach태그의 일반 for문 형태
 			<c:set var="sum" value="${ sum + j }" />
 		</c:if>
 	</c:forEach>
-	
-	<!-- 
 	1~100 사이의 정수 중 홀수의 합은? ${ sum }
 	
+	
+	 
+	<!--
+	[ 연습문제 ]
+	아래 모양을 출력하시오. 단 JSTL의 forEach문과 if문을 활용하시오.
 		0 1 0 0 0
 		0 0 1 0 0
 		0 0 0 1 0
 		0 0 0 0 1
 	-->
+	<h4>연습문제01 - forEach문과 if문</h4>
 	<c:forEach begin="1" end="5" step="1" var="i">
 		<c:forEach begin="1" end="5" var="j">
 			<c:if test="${i eq j }" var="result">
@@ -72,6 +76,22 @@ forEach태그의 일반 for문 형태
 			<c:if test="${not result }">
 				0&nbsp;
 			</c:if>
+		</c:forEach>	
+		<br />
+	</c:forEach>
+	
+	<h4>연습문제02 - choose~when~otherwise문</h4>
+	<!-- 앞의 문제를 choose~when~otherwise문으로 변경하시오. -->
+	<c:forEach begin="1" end="5" step="1" var="i">
+		<c:forEach begin="1" end="5" var="j">
+			<c:choose>
+				<c:when test="${i eq j }">
+					1&nbsp;
+				</c:when>
+				<c:otherwise>
+					0&nbsp;
+				</c:otherwise>
+			</c:choose>			
 		</c:forEach>	
 		<br />
 	</c:forEach>
