@@ -176,7 +176,8 @@
   </servlet-mapping>
 
 
-  <!-- MVC패턴으로 회원인증을 하가위한 서블릿 매핑(예제14-6) -->
+  <!-- 모델2 방식의 비회원제 게시판을 위한 서블릿 매핑 -->
+  <!-- 목록보기 (예제14-6) -->
   <servlet>
   	<servlet-name>MVCBoardList</servlet-name>
   	<servlet-class>model2.mvcboard.ListController</servlet-class>
@@ -186,7 +187,29 @@
   	<url-pattern>/mvcboard/list.do</url-pattern>
   </servlet-mapping>
 		
+  <!-- 글쓰기 (예제14-9) -->
+  <!-- 
+  모델2(서블릿 방식) 게시판의 글쓰기는 파일첨부 기능이 잇으므로 multipart에 대한 설정을 추가해야 한다.
+  "파일업로드" 챕터에서는 어노테이션을 통해 설정했지만, 해당 챕터에서는 web.xml에 설정한다.
+   -->
+  <servlet>
+  	<servlet-name>MVCBoardWrite</servlet-name>
+  	<servlet-class>model2.mvcboard.WriteController</servlet-class>
+  	<!-- 개별파일의 최대크기와 전체파일의 최대크기를 아래와 같이 설정하면된다. -->
+  	<multipart-config>
+  		<max-file-size>1048576</max-file-size>	<!-- 1MB -->
+  		<max-request-size>10485760</max-request-size>	<!-- 10MB -->
+  	</multipart-config>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>MVCBoardWrite</servlet-name>
+  	<url-pattern>/mvcboard/write.do</url-pattern>
+  </servlet-mapping>
   
+  <context-param>
+  	<param-name>maxPostSize</param-name>
+  	<param-value>1024000</param-value>
+  </context-param>
   
   
 </web-app>

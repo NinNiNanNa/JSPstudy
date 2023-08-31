@@ -17,6 +17,7 @@ import utils.BoardPage;
 매핑은 web.xml에서 처리
 */
 public class ListController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
 
 	// 목록으로 진입은 get방식이므로 doGet()메서드 오버라이딩
 	@Override
