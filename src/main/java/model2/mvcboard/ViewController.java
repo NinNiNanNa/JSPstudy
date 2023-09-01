@@ -1,12 +1,15 @@
 package model2.mvcboard;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import oracle.jdbc.OracleTypeMetaData.Array;
 
 // 내용보기의 매핑은 web.xml이 아닌 어노테이션을 통해 설정한다.
 @WebServlet("/mvcboard/view.do")
@@ -33,15 +36,21 @@ public class ViewController extends HttpServlet {
 		dto.setContent(dto.getContent().replace("\r\n", "<br/>"));
 		
 		// 첨부파일 확장자 추출 및 이미지 타입 확인
-//		String ext = null, fileName = dto.getSfile();
-//		boolean isImage = false;
-//		if() {
-//			
-//		}
+		String ext = null, fileName = dto.getSfile();
+		if(fileName != null) {
+			ext = fileName.substring(fileName.lastIndexOf(".")+1);
+		}
+		String[] mimeStr = {"png","jpg","gif"};
+		List<String> mimeList = Arrays.asList(mimeStr);
+		boolean isImage = false;
+		if(mimeList.contains(ext)){
+			isImage = true;
+		}
+		
 		
 		// 게시물(dto)을 request 영역에 저장한 후 뷰로 포워드한다.
 		req.setAttribute("dto", dto);
-//		req.setAttribute("isImage", isImage);
+		req.setAttribute("isImage", isImage);
 		req.getRequestDispatcher("/14MVCBoard/View.jsp").forward(req, resp);
 		
 	}

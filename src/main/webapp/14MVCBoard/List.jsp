@@ -63,7 +63,12 @@
             <td>${ row.name }</td>
             <td>${ row.visitcount }</td>
             <td>${ row.postdate }</td>
-            <td>
+            <td>	<!-- 첨부 파일 -->
+            <!-- 
+            첨부한 파일이 있는 경우에만 다운로드 링크를 출력한다.
+            해당 링크의 파라미터는 원본 파일명, 저장된 파일명, 일련번호 3개로 
+            구성된 특히 일련번호는 다운로드 횟수 증가에 사용된다.
+             -->
             <c:if test="${ not empty row.ofile }">
             	<a href="../mvcboard/download.do?ofile=${ row.ofile }&sfile=${ row.sfile }&idx=${ row.idx }">[Down]</a>
             </c:if>
